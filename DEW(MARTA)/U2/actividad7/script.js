@@ -1,34 +1,27 @@
 //Función para generar número aleatorio entre 1 y 100, ambos incluidos
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+let num1 =Math.floor(Math.random() * 100 + 1);
+alert(num1);
 
-let num1 = getRandomIntInclusive(1, 100);
 
 //Bucle para elegir el número máximo de intentos
-let intentosMax = 0;
-while (intentosMax >= 0) {
-    intentosMax= parseInt(prompt("Introduce un número máximo de intentos. Si no desea establecer máximo, introduzca un 0: "))
+let intentosMax = -1;
+while (intentosMax == -1) {
+    intentosMax = parseInt(prompt("Introduce un número máximo de intentos. Si no desea establecer máximo, introduzca un 0: "))
     if (intentosMax > 0) {
         alert("Usted tendrá " + intentosMax + " intentos.")
+        break;
     } else if (intentosMax == 0) {
         alert("Ha decidido no tener máximo de intentos.")
+        intentosMax = -2;
+        break;
     } else {
         alert("El valor introducido no es correcto");
+        intentosMax = -1;
     }
 }
 
 //Variable que almacena el número de intentos
 let intentos = 0;
-
-//Variable que almacena el número de intentos restantes si se han establecido
-if(intentosMax>0){
-    let contador= intentosMax-intentos;
-}else{
-    let contador=-1
-}
 
 //Variable que almacena el valor introducido por el usuario
 let scan = 0;
@@ -36,16 +29,20 @@ let scan = 0;
 //Array que recoge los números que va introduciendo el usuario
 let scans = [];
 
-while (scan != -1) {
+while (scan != -1 && intentosMax != 0) {
 
     //Paso el valor que introduce el usuario a númerico para luego hacer las comprobaciones
-    scan = parseInt(prompt("Introduce el número que creas correcto: \nPara rendirte, inserta '-1'"));
+    scan = parseInt(prompt("Introduce el número que creas correcto (entre el 1 y el 100, ambos incluídos): \nPara rendirte, inserta '-1'"));
 
     //Entra por aquí si lo que introduce es un valor entre 1 y 100
-    if (scan >= 1 && scan <= 100) {
+    if (scan >= 1 && scan <= 100 && intentosMax != 0) {
         //Si introduce un valor válido, se suma el intento y se almacena en el array
         intentos++;
+
+        if (intentosMax > 0) { intentosMax--; }
+
         scans.push(scan);
+
         if (scan < num1) {
             if ((num1 - scan) > 10) {
                 alert("El número secreto es mayor que " + scan);
@@ -74,6 +71,9 @@ while (scan != -1) {
         alert("El valor introducido no es válido, inténtelo de nuevo");
     }
 
+}
+if (intentosMax == 0) {
+    alert("Juego finalizado. Ha agotado los intentos");
 }
 
 
