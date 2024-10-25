@@ -1,7 +1,5 @@
 //Función para generar número aleatorio entre 1 y 100, ambos incluidos
 let num1 =Math.floor(Math.random() * 100 + 1);
-alert(num1);
-
 
 //Bucle para elegir el número máximo de intentos
 let intentosMax = -1;
@@ -29,6 +27,8 @@ let scan = 0;
 //Array que recoge los números que va introduciendo el usuario
 let scans = [];
 
+
+//Bucle que pide números al usuario
 while (scan != -1 && intentosMax != 0) {
 
     //Paso el valor que introduce el usuario a númerico para luego hacer las comprobaciones
@@ -38,10 +38,10 @@ while (scan != -1 && intentosMax != 0) {
     if (scan >= 1 && scan <= 100 && intentosMax != 0) {
         //Si introduce un valor válido, se suma el intento y se almacena en el array
         intentos++;
-
-        if (intentosMax > 0) { intentosMax--; }
-
         scans.push(scan);
+
+        //Si tiene intentos máximos, resta un intento
+        if (intentosMax > 0) { intentosMax--; }
 
         if (scan < num1) {
             if ((num1 - scan) > 10) {
@@ -72,8 +72,9 @@ while (scan != -1 && intentosMax != 0) {
     }
 
 }
+//Si se acaban los intentos, comunicarlo al usuario
 if (intentosMax == 0) {
-    alert("Juego finalizado. Ha agotado los intentos");
+    alert("Juego finalizado. Ha agotado los intentos\n El número a adivinar era el "+num1+" y usted ha introducido los valores "+scans);
 }
 
 
