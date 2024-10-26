@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Rombo</title>
+</head>
+<body>
+
+<div id="caja"></div>
+
+<script>
+    var caja = document.getElementById("caja");
+    var limite = 4; 
+
+    for (var i = 0; i < limite; i++) {
+
+        var asterisco = "";
+        var espacioHTML = "";
+
+        for (var k = 0; k < limite - i - 1; k++) {
+            espacioHTML += "&nbsp;&nbsp;";
+        }
+
+        for (var j = 0; j <= 2 * i; j++) {
+            if (j == 0 || j == 2 * i) {
+                asterisco += "*";
+            } else {
+                asterisco += "&nbsp;&nbsp;";
+            }
+        }
+
+        caja.innerHTML += espacioHTML + asterisco + "<br>";
+    }
+
+    for (var i = limite - 2; i >= 0; i--) {
+
+        var asterisco = "";
+        var espacioHTML = "";
+
+        for (var k = 0; k < limite - i - 1; k++) {
+            espacioHTML += "&nbsp;&nbsp;";
+        }
+
+        for (var j = 0; j <= 2 * i; j++) {
+            if (j == 0 || j == 2 * i) {
+                asterisco += "*";
+            } else {
+                asterisco += "&nbsp;&nbsp;";
+            }
+        }
+
+        caja.innerHTML += espacioHTML + asterisco + "<br>";
+    }
+
+</script>
+
+</body>
+</html>
+</body>
+</html>

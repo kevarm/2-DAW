@@ -7,179 +7,34 @@
 </head>
 <body>
     <h1>Gestión de productos</h1>
-    <input type="button" value="Crear">
+    <a type="button" href="crear.php">Crear</a>
     <br>
 
-    <table>
-        <tr>
-            <th>Detalle</th>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Acciones</th>
-        </tr>
-        <tr>
-            <td>
-                <input type="button" value="Detalle">
-            </td>
-            <td>
-                //Aquí se inportará de la BD<p></p>
-            </td>
-            <td>
-                //Same<p></p>
-            </td>
-            <td>
-                <input type="button">
-                <input type="button">
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    
+     <?php
 
-        
-        
-    </table>
-</body>
+    require_once __DIR__."/conexion.php";
+
+        // Creación de la conexión
+        $conn = conectar("localhost", "proyecto", "root", "");
+
+        if ($conn == null) {
+          echo "<script>console.log('Error: No se pudo establecer conexión con la base de datos.')</script>";
+        }
+
+        $resultado_query = $conn->query('select * from productos');
+
+        while($row = $resultado_query->fetch(PDO::FETCH_OBJ)) {
+          echo "<div>
+                    <p>Código: {$row->id}</p>  
+                      <h3>Nombre: {$row->nombre}</h3>
+                      <a href='detalle.php?id={$row->id}'>Ver Detalle</a>
+                      <a href='update.php?id={$row->id}'>Modificar</a>
+                      <a href='borrar.php?id={$row->id}'>Eliminar</a>
+                </div>";
+          }
+
+        // Cerrar la conexión
+        $conn = null;
+      ?>
+      </body>
 </html>
