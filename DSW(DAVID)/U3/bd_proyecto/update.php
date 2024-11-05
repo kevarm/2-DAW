@@ -4,16 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi update</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Form container */
+        form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form title */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Input fields */
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Textarea styling */
+        textarea {
+            resize: vertical;
+        }
+
+        /* Buttons styling */
+        input[type="submit"],
+        input[type="reset"],
+        a {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 0.5rem 0;
+        }
+
+        /* Hover effects for buttons */
+        input[type="submit"]:hover {
+            background-color: #28a745;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #dc3545;
+        }
+
+        a {
+            background-color: #6c757d;
+        }
+
+        a:hover {
+            background-color: #5a6268;
+        }
+
+        /* Success and error messages */
+        .message {
+            padding: 10px;
+            margin-top: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .message.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body>
 
   <?php
     if (!isset($_GET['id'])) {
       echo "<script>console.log(Error: 'No existe el producto con este ID')</script>";
-      header('Location: listado.php');
       exit();
     }
 
@@ -21,32 +136,14 @@
   ?>
 
   <?php
-    require_once __DIR__."/base/functions.php";
-    enableErrorLog();
+    require_once __DIR__."/conexion.php";
   ?>
 
-  <nav class="navbar navbar-expand-lg p-3 mb-2 bg-secondary text-white">
-    <div class="container-fluid">
-      <ul class="navbar-nav d-flex justify-content-center w-100">
-        <li class="nav-item">
-          <a class="nav-link text-white active" aria-current="page" href="./index.php">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white active" aria-current="page" href="./listado.php">Mis productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="crear.php">Crear un producto</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="flex-grow-1 container mt-4 mb-4">
-    <h1 class="mb-4"> -- Editar producto -- </h1>
+  <form method="post">
+    <h1>Actualizar producto</h1>
 
     <?php
-
-      $conn = createConnection("localhost", "proyecto", "root", "");
+      $conn = conectar("localhost", "proyecto", "root", "");
 
       if ($conn == null) {
         echo "<script>console.log('Error: No se pudo establecer conexión con la base de datos.')</script>";
@@ -66,63 +163,43 @@
       $conn = null;
     ?>
 
-    <form method="post" class="container p-4 border rounded bg-light shadow-sm">
-      <legend class="mb-4 text-center">Introduce los datos del producto</legend>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" value="<?= $product['nombre']?>" required>
 
-      <div class="form-group mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" id="nombre" name="nombre" class="form-control" value="<?= $product['nombre']?>" required>
-      </div>
+    <label for="nombre_corto">Nombre corto</label>
+    <input type="text" id="nombre_corto" name="nombre_corto" value="<?= $product['nombre_corto']?>" required>
 
-      <div class="form-group mb-3">
-        <label for="nombre_corto" class="form-label">Nombre corto</label>
-        <input type="text" id="nombre_corto" name="nombre_corto" class="form-control" value="<?= $product['nombre_corto']?>" required>
-      </div>
+    <label for="precio">Precio (€)</label>
+    <input type="number" step="0.01" id="precio" name="precio" value="<?= $product['precio']?>" required>
 
-      <div class="form-group mb-3">
-        <label for="precio" class="form-label">Precio (€)</label>
-        <input type="number" step="0.01" id="precio" name="precio" class="form-control" value="<?= $product['precio']?>" required>
-      </div>
+    <label for="familia">Familia</label>
+    <select id="familia" name="familia" required>
+      <?php
+        $conn = conectar("localhost", "proyecto", "root", "");
 
-      <div class="form-group mb-3">
-        <label for="familia" class="form-label">Familia</label>
-        <select id="familia" name="familia" class="form-select" required>
-          <?php
-            $conn = createConnection("localhost", "proyecto", "root", "");
+        if ($conn == null) {
+          echo "<script>console.log('Error: No se pudo establecer conexión con la base de datos.')</script>";
+        }
 
-            if ($conn == null) {
-              echo "<script>console.log('Error: No se pudo establecer conexión con la base de datos.')</script>";
-            }
-      
-            $resultado_query = $conn->query("select * from familias");
+        $resultado_query = $conn->query("select * from familias");
 
-            while($row = $resultado_query->fetch(PDO::FETCH_OBJ)) {
-              $cod = htmlspecialchars($row->cod);
-              $nombre = htmlspecialchars($row->nombre);
-          
-              $selected = ($cod == $product['familia']) ? 'selected' : '';
-          
-              echo "<option value='{$cod}' {$selected}>
-                      {$nombre}
-                    </option>";
-            }
-      
-            $conn = null;
-          ?>
-        </select>
-      </div>
+        while($row = $resultado_query->fetch(PDO::FETCH_OBJ)) {
+          $cod = htmlspecialchars($row->cod);
+          $nombre = htmlspecialchars($row->nombre);
+          $selected = ($cod == $product['familia']) ? 'selected' : '';
+          echo "<option value='{$cod}' {$selected}>{$nombre}</option>";
+        }
 
-      <div class="form-group mb-3">
-        <label for="descripcion" class="form-label">Descripción</label>
-        <textarea id="descripcion" name="descripcion" class="form-control" rows="4" required><?= $product['descripcion']?></textarea>
-      </div>
+        $conn = null;
+      ?>
+    </select>
 
-      <div class='d-flex justify-content-center mt-4 gap-2'>
-        <input class='btn btn-success' type="submit" value="Modificar producto">
-        <input class='btn btn-danger' type="reset" value="Resetear formulario">
-        <a class='btn btn-primary' href="listado.php#<?php echo $id_producto; ?>">Volver a mis productos</a>
-      </div>
-    </form>
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" name="descripcion" rows="4" required><?= $product['descripcion']?></textarea>
+
+    <input type="submit" value="Modificar producto">
+    <input type="reset" value="Limpiar">
+    <a href="listado.php#<?php echo $id_producto; ?>">Volver a mis productos</a>
 
     <?php
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -133,8 +210,7 @@
         $familia = $_POST['familia'];
         $descripcion = $_POST['descripcion'];
 
-        // Creación de la conexión
-        $conn = createConnection("localhost", "proyecto", "root", "");
+        $conn = conectar("localhost", "proyecto", "root", "");
 
         if ($conn == null) {
           echo "<script>console.log('Error: No se pudo establecer conexión con la base de datos.')</script>";
@@ -144,24 +220,24 @@
           $reg = $conn->exec("UPDATE `productos` SET `nombre` = '".$nombre."', `nombre_corto` = '".$nombre_corto."', `descripcion` = '".$descripcion."', `pvp` = '".$precio."', `familia` = '".$familia."' WHERE `id` = '".$id."'");
 
           if ($reg == 1) {
-            echo "<p class='alert alert-success mt-4' role='alert'>El producto se ha modificado con éxito</p>";
+            echo "<p class='message success'>El producto se ha modificado con éxito</p>";
           }
 
         } catch (PDOException $ex) {
           if ($ex->getCode() == "23000") {
-            echo "<p class='alert alert-danger mt-4' role='alert'>
-                    Este nombre corto ya está en uso. Por favor, introduce otro nombre corto.
-                  </p>";
+            echo "<p class='message error'>Este nombre corto ya está en uso. Por favor, introduce otro nombre corto.</p>";
           } else {
-            echo "<p class='alert alert-danger mt-4' role='alert'>";
-            echo "Error en la base de datos: " . $ex->getMessage() . "<br>";
-            echo "Código de error: " . $ex->getCode() . "<br>";
-            echo "</p>";
+            echo "<p class='message error'>Error en la base de datos: " . $ex->getMessage() . "<br>Código de error: " . $ex->getCode() . "</p>";
           }
         }
-        
+
         $conn = null;
       }
     ?>
-    </body>
-    </html>
+  </form>
+  
+</body>
+
+</html>
+
+
