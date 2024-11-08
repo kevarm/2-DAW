@@ -12,13 +12,12 @@ function conexion($host, $db, $user, $pass)
     $username = "postgre";
     $password = "1234";*/
 
-   /*
-    Para cambiar tipo de BD, tendrías que cambiar en $dns el mysql por la variable $tipo y darle de valor o mysql o pgsql
-    $tipo = 'pgsql'
-    */
+   //Cambiar aquí los driver de la BD si se necesitara
+    $tipo = 'mysql';
+    
 
     
-    $dns = "mysql:host=$host;dbname=$db";
+    $dns = "$tipo:host=$host;dbname=$db";
     $conn = new PDO($dns, $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
