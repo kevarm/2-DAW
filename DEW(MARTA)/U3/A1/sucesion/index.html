@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesión de Fibonacci</title>
+</head>
+<body>
+    <h1>Sucesión de Fibonacci</h1>
+    <label for="n">Introduce la cantidad valores: </label>
+    <input type="number" id="n" value="10" min="1">
+    <button onclick="Fibonacci()">Mostrar Fibonacci</button>
+    <p id="resultado"></p>
+
+    <script>
+        // Función recursiva para calcular el n-ésimo número de Fibonacci
+        function fibonacci(n) {
+            if (n <= 1) {
+                return n;
+            } else {
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        }
+
+        function Fibonacci() {
+            const n = parseInt(document.getElementById("n").value);
+            const resultado = [];
+            
+            for (let i = 0; i < n; i++) {
+                resultado.push(fibonacci(i));
+            }
+
+
+            console.log("Resultado: ", resultado.join(", "));
+            document.getElementById("resultado").textContent = "Resultado: " + resultado.join(", ");
+        }
+    </script>
+</body>
+</html>

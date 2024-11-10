@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cookies</title>
+</head>
+<body>
+    <h1>Gestión de Cookies</h1>
+    <button onclick="crearCookie()">Crear Cookie</button>
+    <button onclick="borrarCookie()">Borrar Cookie</button>
+    <button onclick="verificarCookie()">Verificar Cookie</button>
+
+    <script>
+        // Función para crear una cookie
+        function crearCookie() {
+            // Crea una cookie con el nombre "miCookie" y el valor "activa", expira en 7 días
+            const nombre = "miCookie";
+            const valor = "activa";
+            const dias = 7;
+            const fecha = new Date();
+            fecha.setTime(fecha.getTime() + (dias * 24 * 60 * 60 * 1000));
+            const expiracion = "expires=" + fecha.toUTCString();
+            document.cookie = `${nombre}=${valor}; ${expiracion}; path=/`;
+            console.log("Cookie creada: " + document.cookie);
+        }
+
+        // Función para borrar la cookie
+        function borrarCookie() {
+            document.cookie = "miCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            console.log("Cookie borrada.");
+        }
+
+        // Función para verificar si la cookie está activada
+        function verificarCookie() {
+            const cookies = document.cookie.split("; ");
+            const existe = cookies.some(cookie => cookie.startsWith("miCookie="));
+            if (existe) {
+                console.log("La cookie está activa.");
+            } else {
+                console.log("La cookie no está activa.");
+            }
+        }
+    </script>
+</body>
+</html>
