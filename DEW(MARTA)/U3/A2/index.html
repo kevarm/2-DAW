@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>encodeURI() vs encodeURIComponent()</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 16px;
+        }
+        pre {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comparación: encodeURI() vs encodeURIComponent()</h1>
+    <p>
+        <strong>encodeURI()</strong> se usa para codificar URLs completas, dejando intactos caracteres válidos en URLs como <code>:/?#,&</code>.
+    </p>
+    <p>
+        <strong>encodeURIComponent()</strong> codifica cualquier parte de una URL, incluyendo todos los caracteres especiales.
+    </p>
+
+    <h2>Prueba interactiva</h2>
+    <label for="urlInput">Introduce un texto para codificar:</label>
+    <input type="text" id="urlInput" placeholder="Ejemplo: https://example.com/?name=John Doe&age=30">
+    <button onclick="compareEncoding()">Comparar</button>
+
+    <h3>Resultados:</h3>
+    <p><strong>Original:</strong></p>
+    <pre id="original"></pre>
+
+    <p><strong>Codificado con encodeURI():</strong></p>
+    <pre id="encodedURI"></pre>
+
+    <p><strong>Codificado con encodeURIComponent():</strong></p>
+    <pre id="encodedURIComponent"></pre>
+
+    <script>
+        function compareEncoding() {
+            const input = document.getElementById('urlInput').value;
+
+            // Mostrar texto original
+            document.getElementById('original').textContent = input;
+
+            // Codificar con encodeURI()
+            const encodedURI = encodeURI(input);
+            document.getElementById('encodedURI').textContent = encodedURI;
+
+            // Codificar con encodeURIComponent()
+            const encodedURIComponent = encodeURIComponent(input);
+            document.getElementById('encodedURIComponent').textContent = encodedURIComponent;
+        }
+    </script>
+</body>
+</html>
