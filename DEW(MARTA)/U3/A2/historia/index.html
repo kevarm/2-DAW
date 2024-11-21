@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <style rel="stylesheet" src="css/style.css"></style>
+    <title>Creador de historias</title>
+  </head>
+  <body>
+    <label for="nombre"><strong>Nombre del Protagonista:</strong></label><br />
+    <input type="text" id="nombre" required /><br /><br />
+
+    <label for="lepero"><strong>Terror</strong></label>
+    <input type="radio" name="localidad" value="terror" id="terror" />
+    <label for="murciano"><strong>Fantasía:</strong></label>
+    <input type="radio" name="localidad" value="fantasia" id="fantasia" />
+
+    <br /><br />
+
+    <input type="button" id="btnSubmit" value="Generar Historia" />
+
+    <p id="texto" style="width: 40%; background-color: #F7C126; color:black;"></p>
+
+    <script src="./script/script.js"></script>
+  </body>
+</html>
