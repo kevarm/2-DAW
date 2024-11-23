@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concurso de Carteles</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<body class="grid-container">
     <!-- Encabezado -->
-    <header>
-        <div class="header-left">
-            <img src="logo_ies_fernando_sagaseta.png" alt="Logo I.E.S Fernando Sagaseta">
-        </div>
-        <a href="index.html"><p>30 de mayo</p></a>
-        <nav>
+    <header class="header">
+        <a href="https://www3.gobiernodecanarias.org/medusa/edublog/iesfernandosagaseta/"><img src="img/logo.jpg" class="logo" alt="Logo_ies"></a>
+        <a href="index.html">
+            <p>Concurso día de Canarias</p>
+        </a>
+        <nav class="nav">
             <ul>
                 <li><a href="carteles.html">Carteles</a></li>
                 <li><a href="participar.html">Participar</a></li>
@@ -22,36 +24,53 @@
     </header>
 
     <!-- Sección principal -->
-    <main>
+    <main class="main">
         <!-- Banner del concurso -->
         <section class="banner">
-            <p>Participa en nuestro concurso diseñando un cartel para X y gana... ¡dos entradas de cine!</p>
+            <p>Participa en nuestro concurso diseñando un cartel para el día de Canarias y gana... ¡dos entradas de cine!</p>
+            <br>
             <button>Participar</button>
         </section>
-
         <!-- Sección de carteles -->
-        <section class="carteles">
-            <div class="cartel1">
-                <div class="imagen-cartel"></div>
+        <ul class="carteles">
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
                 <button><a href="votar.html">Votar</a></button>
-            </div>
-            <div class="cartel2">
-                <div class="imagen-cartel"></div>
+            </li>
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
                 <button><a href="votar.html">Votar</a></button>
-            </div>
-            <div class="cartel3">
-                <div class="imagen-cartel"></div>
+            </li>
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
                 <button><a href="votar.html">Votar</a></button>
-            </div>
-            <button><a href="carteles.html">Ver todo</a></button>
-        </section>
+            </li>
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
+                <button><a href="votar.html">Votar</a></button>
+            </li>
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
+                <button><a href="votar.html">Votar</a></button>
+            </li>
+            <li class="cartel">
+                <img class="img" src="img/cartel.jpg"></img>
+                <div class="cartel-data"><p>Título</p></div>
+                <button><a href="votar.html">Votar</a></button>
+            </li>
+        </ul>
     </main>
-    
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <a href="leyproteccion.html">Ley de protección de datos</a>
         <a href="bases.html">Bases del concurso</a>
         <a href="avisolegal.html">Aviso legal</a>
     </footer>
 </body>
+
 </html>

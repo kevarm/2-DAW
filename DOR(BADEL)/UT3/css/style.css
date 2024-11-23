@@ -1,0 +1,95 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    padding:10px;
+    text-align: center;
+}
+
+.grid-container{
+    display:grid;
+    gap:10px;
+    
+}
+
+
+.banner{
+    width:40%;
+    margin:3% auto;
+    background-color: blue;
+    padding:20px;
+    box-shadow:-1px 1px 7px 0px rgba(0,0,0,0.7);
+}
+
+.carteles{
+    margin:2%;
+    list-style: none;
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:40px;
+  
+    /*auto-fit, 
+        minmax(
+            200px,
+            1fr
+            ));el código anterior te adapta el contenido al espacio sin @media*/
+    
+    @media (min-width:768px){
+        grid-template-columns: repeat(3,1fr);      
+        gap:40px;
+    
+    }
+    
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.logo{
+    width:100px;
+    height: 100px;
+    
+}
+
+.cartel{
+    
+    box-shadow:-1px 1px 7px 0px rgba(0,0,0,0.7);
+    padding:20px;
+   
+}
+
+.footer{
+    display:flex;
+    
+}
+
+.cartel-data{
+    margin:5%;
+}
+
+button{
+        
+        border: none;
+        color: white;
+        padding: 14px 28px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #5d6164; /* Color base del botón */
+        transition: box-shadow 0.3s ease-in-out; /* Transición suave del efecto de sombra */
+      }
+
+a {
+    text-decoration: none;
+}
+
+button:hover {
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta el desplazamiento y la opacidad de la sombra */
+      }
+    
