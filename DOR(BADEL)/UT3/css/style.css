@@ -1,50 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono&display=swap');
+
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("img/fondo.png");
+    font-size:18px;
+}
+
+
+.nav li{
+    list-style: none;
+    transition: 0.2s;
+    padding:20px;
+}
+
+.nav a{
+    color:white;
+    font-size: 20px;
+}
+
+.nav ul{
+    display:flex;
+    flex-direction: row;
+    text-align: end;
+}
+
+.nav li:hover{
+    transform: scale(1.1);
+}
+
+.footer a{
+    list-style: none;
+    text-decoration: none;
+    transition: 0.2s;
+    padding:20px;
+}
+
+.footer a:hover{
+    transform: scale(1.1);
 }
 
 .grid-container > * {
-    box-shadow: -1px 1px 7px 0px rgba(0,0,0,0.3);
-    border-radius: 3px;
+    
+    
     padding:10px;
     text-align: center;
+}
+.header{
+    box-sizing: none;
+    box-shadow: none;
+    display:flex;
+    align-items: center;
+   background-color: rgba(1, 39, 91, 0.966);
+    border-bottom: 2px solid rgba(1, 39, 91, 0.966);
+}
+
+.header a{
+    display: flex;
 }
 
 .grid-container{
     display:grid;
-    gap:10px;
+    
     
 }
+
+.titulo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color:white;
+    transition: all 0.2s;
+    display:flex;
+    justify-content: center;
+}
+
+.titulo:hover{
+    transform: scale(1.1);
+}
+
 
 
 .banner{
     width:40%;
     margin:3% auto;
-    background-color: blue;
     padding:20px;
-    box-shadow:-1px 1px 7px 0px rgba(0,0,0,0.7);
+    border: 2px solid rgba(1, 39, 91, 0.966);
+    transition: box-shadow 0.2s ease-in-out;
 }
+
+.banner{
+    h1{
+    font-weight: 800;}
+    p{
+    font-weight: 800;
+    }
+}
+
+
 
 .carteles{
     margin:2%;
     list-style: none;
     display:grid;
     grid-template-columns: repeat(1,1fr);
-    gap:40px;
-  
-    /*auto-fit, 
-        minmax(
-            200px,
-            1fr
-            ));el código anterior te adapta el contenido al espacio sin @media*/
-    
-    @media (min-width:768px){
-        grid-template-columns: repeat(3,1fr);      
-        gap:40px;
-    
-    }
-    
+    gap:40px;  
+}
+
+.carteles a{
+    color:white;
 }
 
 .header{
@@ -53,43 +122,111 @@
     
 }
 .logo{
-    width:100px;
-    height: 100px;
-    
+    width:150px;
+    height: 150px;
+    transition: all 0.3s;
+    border-radius:30%;
 }
 
+.logo:hover{
+    transform: scale(1.1);
+}
+
+
 .cartel{
-    
-    box-shadow:-1px 1px 7px 0px rgba(0,0,0,0.7);
+    border: 2px solid rgba(1, 39, 91, 0.966); 
     padding:20px;
-   
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.cartel:hover{
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+    background-color:rgba(34, 68, 179, 0.295);
 }
 
 .footer{
     display:flex;
-    
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
 }
 
 .cartel-data{
     margin:5%;
 }
 
-button{
-        
+button{   
+        font-size:20px;
+        color:white;
         border: none;
-        color: white;
         padding: 14px 28px;
         cursor: pointer;
-        border-radius: 5px;
-        background-color: #5d6164; /* Color base del botón */
-        transition: box-shadow 0.3s ease-in-out; /* Transición suave del efecto de sombra */
+        border-radius: 15px;
+        background-color: rgba(1, 39, 91, 0.966); /* Color base del botón */
+        transition:all 0.2s; /* Transición suave del efecto de sombra */
       }
+
+button:hover {
+        box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+        transform: scale(1.1);
+        /*background-color: rgba(56, 75, 219, 0.575);*/
+}
 
 a {
     text-decoration: none;
 }
 
-button:hover {
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta el desplazamiento y la opacidad de la sombra */
-      }
+
+.footer{display:flex;
+    justify-content: space-evenly;
+    background-color: rgba(1, 39, 91, 0.966);
     
+}
+.footer a{
+    text-decoration: none;
+    color:white;
+}
+
+
+
+/* Si quisieras darle sombre a un objeto flotante  
+.header p{
+    filter:drop-shadow(0 0 10px rgba(0,0,0,0.8));
+}*/
+
+@media (min-width:991px){
+    .carteles{
+    grid-template-columns: repeat(3,1fr);      
+    gap:40px;}
+
+}
+
+@media (min-width:768px) and (max-width:990px){
+    .carteles{
+    grid-template-columns: repeat(2,1fr);      
+    gap:40px;}
+
+}
+
+@media (max-width:767px){
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .carteles{
+    grid-template-columns: repeat(1,1fr);      
+    align-items: center;
+    width:100%;
+}
+    .header{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .footer{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .banner{
+        width:70%;
+    }
+}
