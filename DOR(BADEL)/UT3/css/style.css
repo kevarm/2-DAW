@@ -23,6 +23,7 @@
 .nav a{
     color:white;
     font-size: 20px;
+    
 }
 
 .nav ul{
@@ -78,6 +79,7 @@
     transition: all 0.2s;
     display:flex;
     justify-content: center;
+    padding:10px;
 }
 
 .titulo:hover{
