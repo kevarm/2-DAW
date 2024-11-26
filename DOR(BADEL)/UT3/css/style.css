@@ -80,10 +80,6 @@
     display:flex;
     justify-content: center;
     padding:10px;
-    /*background-image: url(../img/fondo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;*/
 }
 
 .titulo:hover{
@@ -206,7 +202,6 @@ a {
     text-decoration: none;
 }
 
-
 .footer{
     display:flex;
     justify-content: space-evenly;
@@ -219,37 +214,52 @@ a {
 }
 
 .form{
-    margin:3%;
-    width:70%;
-    margin:auto;
-    margin-top: 5%;
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+    align-items: start;
+    width:100%;
+}
 
+.form_2{
+    display:flex;
+    flex-direction: row;
+    padding: 5%;
+    margin-left:5%;
+}
+
+.form_2 p{
+    padding-left: 5%;
+}
 .form_1{
-    border:2px solid black;
     padding:5%;
     display:flex;
     flex-direction: row;
-    width:70%;
+    justify-content: space-evenly;
+}
+
+.votar{
+    
+    border-radius: 5px;
     margin:auto;
+    margin-top:10%;
 }
 
 .form_1 img{
-    width:50%;
-    padding:5%;
+    width:70%;
+    padding:2%;
 }
 
-.form_1 p{
+/*.ESTO ES PA MOVER EL TITULO PARRIBA form_1 p{
     align-content: center;   
-}
+}*/
 
 .form_div{
     display:flex;
     flex-direction: column;
+    border:2px solid black;
+    width:70%;
+    margin:auto;
 }
-
-
 
 @media (min-width:991px){
     .carteles{
@@ -295,4 +305,6 @@ a {
         width:70%;
     }
 }
+
+
 
