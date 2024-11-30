@@ -329,6 +329,9 @@ button:hover, .votar{
     .carteles{
     grid-template-columns: repeat(2,1fr);      
     gap:40px;}
+    .form_div{
+        width:90%;
+    }
 }
 
 @media (max-width:767px){
@@ -382,11 +385,9 @@ button:hover, .votar{
         width:80%;
     }
 
-   
-
-    
-
-    
+    .form_div{
+        width:90%;
+    }
 }
     
 
