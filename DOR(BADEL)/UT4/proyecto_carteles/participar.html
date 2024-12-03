@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concurso de Carteles</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="grid-container">
+    <!-- Encabezado -->
+    <header class="header">
+        <a href="https://www3.gobiernodecanarias.org/medusa/edublog/iesfernandosagaseta/"><img src="img/logo3.png"
+                class="logo" alt="Logo_ies"></a>
+        <a class="concurso">
+            <p class="titulo">Concurso día de Canarias</p>
+        </a>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Carteles</a></li>
+                <li><a href="participar.html">Participar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main>
+        <section>
+            <div class="formulario_part">
+                <div class="condiciones">
+                    <ul class="condiciones_grid">
+                        <h1>Condiciones para participar</h1><br>
+                        <li class="condicion">
+                            <p>Debes ser alumno del centro</p>
+                        </li>
+                        <li class="condicion">
+                            <p>Sólo será permitido un cartel <span>por participante</span></p>
+                        </li>
+                        <li class="condicion">
+                            <p>Los carteles deben reflejar elementos alusivos a la cultura, tradiciones, símbolos y
+                                patrimonio de Canarias.</p>
+                        </li>
+                        <li class="condicion">
+                            <p>Se permite cualquier técnica, siempre que el diseño final esté en <b>formato digital.</b>
+                            </p>
+                        </li>
+                        <li class="condicion">
+                            <p>El cartel debe presentarse en <b>formato vertical</b> y en tamaño <b>DIN A3 (3508 x 4961
+                                    píxeles)</b>,
+                                además de subirse en <b>formato PDF.</b></p>
+                        </li>
+                        <li class="condicion">
+                            <p>Cualquier diseño que incluya contenido inapropiado o contrario a los valores de respto y
+                                convivencia, será <b>descalificado.</b></p>
+                        </li>
+                        <li class="condicion">
+                            <p>Al participar, los autores ceden <b>los derechos de uso y reproducción</b> de sus diseños
+                                al centro
+                                educativo para posibles exposiciones y publicaciones.</p>
+                        </li>
+                        <!--
+                    -->
+                </div>
+                <form class="campos_participacion">
+
+                    <h1>Formulario de participación</h1>
+                    <label for="cial">CIAL</label>
+                    <input type="text" id="cial" name="cial">
+                    <br>
+                    <label for="pin">PIN</label>
+                    <input type="text" id="pin" name="pin">
+                    <br>
+                    <label for="file">Adjuntar cartel</label>
+                    <input type="file" id="file" name="file">
+                    <br>
+                    <label for="comentario">Introduzca una descripción del cartel:</label>
+                    <textarea id="comentario" name="comentario"></textarea>
+                    <br>
+                    <input class="votar" type="submit" value="Votar">
+
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="leyproteccion.html">Ley de protección de datos</a>
+        <a href="bases.html">Bases del concurso</a>
+        <a href="avisolegal.html">Aviso legal</a>
+    </footer>
+</body>
+
+</html>

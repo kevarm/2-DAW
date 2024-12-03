@@ -1,0 +1,395 @@
+/*Fuente importada*/
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono&display=swap');
+
+/*POR CORREGUIR: los input type file no  adaptan su texto al contenedor padre al encoger la pantalla*/
+
+/*Estilos aplicados a etiquetas html*/
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("img/fondo.png");
+    font-size:18px;
+}
+
+body,html{
+    /*Esto permite que cuando el contenido sea pequeño, el footer se expanda hasta ocupar el 100%*/
+    height:100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1{
+    font-weight: 800;
+    font-size:30px;
+}
+button{   
+    font-size:20px;
+    color:white;
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: rgba(1, 39, 91, 0.966);
+    transition:all 0.2s; 
+  }
+
+button:hover, .votar{
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+    transform: scale(1.1);
+}
+
+/*Estilos aplicados a clases*/
+
+.header{
+    box-sizing: none;
+    box-shadow: none;
+    display:flex;
+    align-items: center;
+   background-color: rgba(1, 39, 91, 0.966);
+    border-bottom: 2px solid rgba(1, 39, 91, 0.966);
+}
+
+.header a{
+    display: flex;
+}
+
+.titulo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color:white;
+    transition: all 0.2s;
+    display:flex;
+    justify-content: center;
+    padding:10px;
+}
+
+.nav li{
+    list-style: none;
+    transition: 0.2s;
+    padding:20px;
+}
+
+.nav a{
+    color:white;
+    font-size: 20px;
+    
+}
+
+.nav ul{
+    display:flex;
+    flex-direction: row;
+    text-align: end;
+}
+
+.nav li:hover{
+    transform: scale(1.1);
+}
+
+.banner{
+    margin:auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
+    border: 2px solid rgba(1, 39, 91, 0.966);
+    transition: box-shadow 0.2s ease-in-out;
+    background-image: url(../img/fondo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width:70%;
+    h1{
+    font-weight: 800;}
+    p{
+    font-weight: 800;
+    }
+}
+
+
+.transparencia{
+    /*Imagen aplicada sobre la bandera canaria 
+    para darle transparencia (en index)*/
+    padding:10px;
+    background-color: rgba(255, 255, 255, 0.295);
+    width:100%;
+    height: 100%;
+}
+
+.banner p{
+    margin:2%;
+}
+
+.banner button{
+    margin-bottom: 2%;
+}
+
+.grid-container > * {   
+    padding:10px;
+    text-align: center;
+}
+
+.grid-container{
+    display:grid;
+}
+
+.carteles{
+    margin:2%;
+    list-style: none;
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:40px;  
+}
+
+.condiciones_grid{
+    margin:2%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto;
+    gap:10px;
+}
+
+.carteles a{
+    color:white;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.logo{
+    width:120px;
+    height: 120px;
+    transition: all 0.3s;
+    border-radius:30%;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.img{
+    width:70%;
+    margin-top: 4%;
+}
+
+.cartel, .condicion{
+    border: 2px solid rgba(1, 39, 91, 0.966); 
+    padding:20px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.cartel:hover, .condicion:hover{
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+    background-color:rgba(34, 68, 179, 0.295);
+}
+
+.cartel-data{
+    /*Div en el que se inyectarán los datos desde la BD*/
+    margin:5%;
+}
+
+.footer{
+    display:flex;
+    justify-content: space-evenly;
+    background-color: rgba(1, 39, 91, 0.966);
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+    height: 100%;
+    align-items: center;
+}
+.footer a{
+    text-decoration: none;
+    color:white;
+    list-style: none;
+    text-decoration: none;
+    transition: 0.2s;
+    padding:20px;
+}
+
+.footer a:hover{
+    transform: scale(1.1);
+}
+
+.formulario_part{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width:100%;
+}
+
+.form_div{
+    display:flex;
+    flex-direction: column;
+    border:2px solid black;
+    width:70%;
+    margin:auto;
+}
+
+.form_1{
+    padding:5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.form_1 img{
+    width:70%;
+    padding:2%;
+}
+
+.form_2{
+    display:flex;
+    flex-direction: row;
+    padding: 5%;
+    margin:5%;
+    border:2px solid black;
+    margin-top:0;
+}
+
+.form_2 p{
+    padding-left: 5%;
+    
+}
+
+.votar{
+    
+    border-radius: 5px;
+    margin:auto;
+    margin-top:2%;
+    margin-bottom: 2%;
+    padding:5px;
+}
+
+.descripcion{
+    margin-top: 10%;
+}
+
+
+
+.condiciones {
+    width:40%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    align-items: start; 
+}
+
+.condiciones :first-child{
+    align-items: center;
+    padding-top:1%;
+}
+
+.lista-excepcion {
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.campos_participacion{
+    width:50%;
+    border:2px solid rgba(1, 39, 91, 0.966); 
+    margin-top:3%;
+    margin-bottom:3%;
+    margin-left:3%;
+    margin-right:3%;
+    height:fit-content;
+}
+
+.campos_participacion >*{
+    margin-top:1%;
+}
+
+.campos_participacion:hover{
+    box-shadow: 5px 5px 5px  rgba(0,0,0,0.3);
+    background-color:rgba(34, 68, 179, 0.295);
+}
+
+@media (min-width:991px){
+    .carteles{
+    grid-template-columns: repeat(3,1fr);      
+    gap:40px;}
+
+}
+
+@media (min-width:768px) and (max-width:990px){
+    .carteles{
+    grid-template-columns: repeat(2,1fr);      
+    gap:40px;}
+    .form_div{
+        width:90%;
+    }
+}
+
+@media (max-width:767px){
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .carteles{
+    grid-template-columns: repeat(1,1fr);      
+    align-items: center;
+    width:95%;
+    flex-direction: column;
+}
+    .header{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .formulario_part, .form_div, .form_1, .form_2{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .campos_participacion{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        padding:3%;
+    }
+    .formulario_part{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .condiciones{
+        width:80%;
+    }
+    .campos_participacion{
+        width:80%;
+    }
+
+    .form_div{
+        width:90%;
+    }
+}
+    
+
+
+
