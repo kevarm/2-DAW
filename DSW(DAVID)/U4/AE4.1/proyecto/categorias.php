@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT * FROM Categorias");
+$stmt = $conn->prepare("SELECT * FROM categoria");
 $stmt->execute();
 $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -16,7 +16,7 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <ul>
     <?php foreach ($categorias as $categoria): ?>
         <li>
-            <a href="productos.php?categoria_id=<?= $categoria['codigo'] ?>">
+            <a href="productos.php?categoria=<?= $categoria['codigo'] ?>">
                 <?= htmlspecialchars($categoria['nombre']) ?>
             </a>
         </li>

@@ -7,10 +7,10 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$categoria_id = $_GET['categoria_id'];
+$categoria = $_GET['categoria'];
 
-$stmt = $conn->prepare("SELECT * FROM Productos WHERE categoria_id = :categoria_id");
-$stmt->bindParam(':categoria_id', $categoria_id);
+$stmt = $conn->prepare("SELECT * FROM producto WHERE categoria = :categoria");
+$stmt->bindParam(':categoria', $categoria);
 $stmt->execute();
 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
