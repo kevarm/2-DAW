@@ -7,11 +7,21 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function about(){
-        $title="Acerca de nosotros";
-        $subtitle="Subtítulo";
-        $description="Contenido";
-        $author="Autor";
+        $about=[
+        'title'=>"Acerca de nosotros",
+        'subtitle'=>"Subtítulo",
+        'description'=>"Contenido",
+        'author'=>"Autor"
+        ];
+    return view('home.about',$about);
+    }
 
-    return view('home.about',compact('title','subtitle','description','author'));
+    public function index(){
+        $index=[
+            'title'=>"Home",
+            'content'=>"Contenido principal"
+        ];
+
+    return view('home.index',$index);
     }
 }
