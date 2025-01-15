@@ -13,7 +13,7 @@ $titulo ="Mi titulo FPDF";
 $contenido = "Este es el contenido de ejemplo para el documento con libreria FPDF.";
 
 // Poner true si quieres usar FPDF o false si quieres usar DomPdf
-$usarFPDF = true; 
+$usarFPDF = false; 
 
 try {
     if ($usarFPDF) { 
