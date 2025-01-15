@@ -16,7 +16,7 @@ if ($datos = $stmt->fetch(PDO::FETCH_ASSOC)) {
     header("location:inicio.php");
     exit;
 } else {
-    echo "<div class='alert alert-danger'>Acceso denegado</div>";
+    echo "<div class='alert alert-danger'>Credenciales incorrectas</div>";
 }
 
     
