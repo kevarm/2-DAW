@@ -33,12 +33,25 @@ if (!isset($_SESSION["correo"])) {
 	</nav>
 
    <img class="wave" src="img/wave.png">
-   <div class="container">
-      <div class="img">
-         <img src="img/bg.svg">
-      </div>
-   </div>
 
+   <ul class="carteles">
+      <?php
+// AQUÍ SE INYECTARÁN LOS CARTELES DESDE LA BD
+        require_once "modelo/conexion.php";
+        $resultados=getCategory();
+        if ($resultados && count($resultados) > 0) {
+          foreach ($resultados as $resultado) {
+            echo "<li class='producto'>";
+            //SIGUEN SIN PODER VERSE LAS IMAGENES
+            echo "<a>".htmlspecialchars($resultado['nombre'])."</a>";
+            echo "<p>Descripción:".htmlspecialchars($resultado['descripcion'])."</p>";
+            echo "</li>";
+        }
+        }else{
+            echo "<p>No hay resultados disponibles.</p>";
+        }
+      ?>
+    </ul>
    
    <script src="js/fontawesome.js"></script>
    <script src="js/main.js"></script>
