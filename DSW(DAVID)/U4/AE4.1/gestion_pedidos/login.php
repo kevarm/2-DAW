@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['correo'])&& isset($_SESSION['id'])) {
+   header("Location: inicio.php");
+   exit();
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@ session_start();
             <h2 class="title">BIENVENIDO</h2>
             <?php
             include "modelo\conexion.php";
-            include "controlador\controlador_login.php";
+            include "modelo\controlador_login.php";
             ?>
             <div class="input-div one">
                <div class="i">
@@ -57,7 +61,7 @@ session_start();
       </div>
    </div>
 
-   
+
    <script src="js/fontawesome.js"></script>
    <script src="js/main.js"></script>
    <script src="js/main2.js"></script>

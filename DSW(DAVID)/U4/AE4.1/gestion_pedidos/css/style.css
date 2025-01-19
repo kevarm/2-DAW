@@ -6,7 +6,6 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
 }
 
 .wave{
@@ -162,16 +161,14 @@ form{
 }
 
 a{
-	display: block;
-	text-align: right;
+	color:black;
 	text-decoration: none;
-	color: #999;
 	font-size: 0.9rem;
 	transition: .3s;
 }
 
 a:hover{
-	color: #04a1fc;
+	color:#333;
 }
 
 .btn{
@@ -195,6 +192,12 @@ a:hover{
 	background-position: right;
 	background: #142e3d;
 	color: wheat;
+}
+
+.enlaces a{
+	margin-left:20px;
+	color:#04a1fc;
+	
 }
 
 

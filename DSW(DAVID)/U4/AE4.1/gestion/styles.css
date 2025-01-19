@@ -1,0 +1,169 @@
+/* styles.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(https://media.traveler.es/photos/6437e879dc7ebb09ac6b4ea3/master/w_1600%2Cc_limit/El%2520Serbal.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: top 0.2s;
+    box-sizing: border-box;
+}
+
+h2 {
+
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    line-height: 1.6;
+    color: #000000;
+    background-color: rgb(218, 185, 124);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    /* Hace que el fondo solo ocupe el espacio del texto */
+    padding: 5px 10px;
+    /* Agrega un poco de espacio alrededor del texto */
+
+}
+
+.centrado {
+    text-align: center;
+    /* Centra el contenido dentro del contenedor */
+    margin: 0 auto;
+    /* Centra el contenedor en la página */
+    width: max-content;
+    /* El contenedor se ajusta al tamaño del contenido */
+
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+    /* Fuente moderna y fácil de leer */
+    font-size: 16px;
+    /* Tamaño de texto adecuado para lectura */
+    line-height: 1.6;
+    /* Espaciado entre líneas para mayor legibilidad */
+    color: #000000;
+    /* Color negro para el texto */
+    background-color: rgb(218, 185, 124);
+    /* Fondo claro y suave */
+    padding: 15px;
+    /* Espaciado alrededor del texto */
+    border-radius: 8px;
+    /* Bordes redondeados para un aspecto suave */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para resaltar el bloque */
+    max-width: 800px;
+    /* Ancho máximo para que el texto no se alargue demasiado */
+    margin: 20px auto;
+    /* Centrado en la página con margen alrededor */
+}
+
+
+
+#header nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-top: 80px;
+    /* Para evitar que el contenido se oculte detrás del header */
+    padding: 20px;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.numTlf {
+    color: blue;
+    text-decoration-line: none;
+
+}
+
+.numTlf:visited {
+    color: blueviolet;
+}
+
+.numTlfC {
+    background-color: aliceblue;
+    border-radius: 12px;
+    /* Esto redondea los bordes del botón */
+    padding: 5px 10px;
+    /* Espaciado interno del botón */
+    cursor: pointer;
+    transition: color 0.3s;
+    /* Animación para el cambio de color */
+
+}
+
+.numTlfC:hover {
+    background-color: rgb(168, 175, 181);
+    color: blueviolet;
+}
+
+.instagram {
+    text-decoration-line: none;
+    color: blue;
+}
+
+.instagramB {
+    background-color: aliceblue;
+    border-radius: 12px;
+    /* Esto redondea los bordes del botón */
+    padding: 5px 10px;
+    /* Espaciado interno del botón */
+    cursor: pointer;
+    transition: color 0.3s;
+    /* Animación para el cambio de color */
+
+}
+
+.instagramB:hover {
+    background-color: rgb(168, 175, 181);
+    color: blueviolet;
+}
+
+.ubicacion {
+    text-decoration-line: none;
+    color: blue;
+}
+
+.ubicacionB {
+    background-color: aliceblue;
+    border-radius: 12px;
+    /* Esto redondea los bordes del botón */
+    padding: 5px 10px;
+    /* Espaciado interno del botón */
+    cursor: pointer;
+    transition: color 0.3s;
+    /* Animación para el cambio de color */
+
+}
+
+.ubicacionB:hover {
+    background-color: rgb(168, 175, 181);
+    color: blueviolet;
+}
