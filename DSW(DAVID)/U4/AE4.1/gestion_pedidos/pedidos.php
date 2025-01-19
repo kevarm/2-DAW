@@ -33,6 +33,8 @@ if ($restaurante === false) {
 
 $id = $restaurante['Identificador'];
 
+
+
 $query_pedidos = "SELECT * FROM Pedido WHERE restaurante = :id ORDER BY FechaPedido DESC";
 $stmt_pedidos = $conn->prepare($query_pedidos);
 $stmt_pedidos->bindParam(':id', $id, PDO::PARAM_STR);

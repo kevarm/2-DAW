@@ -60,9 +60,9 @@ session_start(); // Iniciar sesión para manejar el carrito
             foreach ($_SESSION['carrito'] as $nombre => $item) {
                 echo "<li>Nombre: " . $nombre . " - Cantidad: " . $item['cantidad'] . "</li>";
             }
-            echo "<br></ul><a href='inicio.php'>Seguir comprando</a><br>";
+            echo "<br></ul><div class='enlaces2'><a href='inicio.php'>Seguir comprando</a>";
             echo "<a href='carrito.php?accion=vaciar'>Vaciar carrito</a>";
-            echo "<a href='pedidos.php'>Confirmar pedido</a>";
+            echo "<a href='pedidos.php'>Confirmar pedido</a></div>";
         } else {
             echo "<h1>Carrito vacío</h1><a href='inicio.php'>Volver a productos</a>";
         }

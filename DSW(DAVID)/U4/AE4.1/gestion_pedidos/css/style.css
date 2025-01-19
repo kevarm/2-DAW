@@ -196,10 +196,16 @@ a:hover{
 
 .enlaces a{
 	margin-left:20px;
-	color:#04a1fc;
-	
+	color:#04a1fc;	
 }
 
+.enlaces2 a{
+	display:flex;
+	flex-direction: row;
+	margin-left:20px;
+	color:black;
+	
+}
 
 @media screen and (max-width: 1050px){
 	.container{
