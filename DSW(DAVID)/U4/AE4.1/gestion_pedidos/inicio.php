@@ -3,11 +3,12 @@
 session_start();
 
 // Verifica si la sesión está activa
-if (!isset($_SESSION["correo"])&& isset($_SESSION['id'])) {
+if (!isset($_SESSION["correo"]) && isset($_SESSION['id'])) {
   // Si no hay sesión activa, redirige al login
   header("location:login.php");
   exit;
 }
+
 
 require_once __DIR__ . '\modelo\conexion.php';
 ?>
@@ -26,7 +27,7 @@ require_once __DIR__ . '\modelo\conexion.php';
 <body>
   <nav>
     <div class="nav">
-      <?php echo $_SESSION["correo"]; 
+      <?php echo $_SESSION["correo"];
       ?>
       <div class="enlaces">
         <a href="inicio.php">Inicio</a>

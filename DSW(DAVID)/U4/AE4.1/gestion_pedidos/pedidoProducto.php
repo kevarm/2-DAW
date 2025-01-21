@@ -9,14 +9,15 @@ if (!isset($_SESSION["correo"])) {
     exit;
 }
 
-if (isset($_GET["codigo"])) {
-    $categoryId = $_GET['codigo'];
+require_once __DIR__ . '\modelo\conexion.php';
+if (isset($_GET["id"])) {
+    $id_pedidoProducto = $_GET['id'];
 } else {
-    echo "No se está recogiendo la id de la categoría";
+    echo "No se está recogiendo la id del pedido";
 }
 
-require_once __DIR__ . '\modelo\conexion.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +27,7 @@ require_once __DIR__ . '\modelo\conexion.php';
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <title>Productos</title>
+    <title>Pedidos</title>
 </head>
 
 <body>
@@ -44,34 +45,31 @@ require_once __DIR__ . '\modelo\conexion.php';
 
     <img class="wave" src="img/wave.png">
 
-    <ul class="productos">
+    <ul class="pedidos">
         <?php
-
         $conn = createConnection();
         if ($conn === null) {
             echo "<p>Error: No se pudo conectar a la base de datos.</p>";
             exit();
         }
 
-        $resultados = getProducts($conn, $categoryId);
-        if ($resultados && count($resultados) > 0) {
-            foreach ($resultados as $resultado) {
-                echo "<li class='producto'>";
-                echo "<h3>" . $resultado['Nombre'] . "</h3>";
-                echo "<p>Peso: " . $resultado['Peso'] . "</p>";
-                echo "<p>Stock: " . $resultado['CantidadStock'] . "</p>";
-                echo "<p>Descripción: " . htmlspecialchars($resultado['Descripcion']) . "</p>";
+        $query_pedido = "SELECT * FROM pedidoproducto WHERE pedido = :id_pedidoProducto";
+        $stmt_pedido = $conn->prepare($query_pedido);
+        $stmt_pedido->bindParam(':id_pedidoProducto', $id_pedidoProducto, PDO::PARAM_STR);
+        $stmt_pedido->execute();
+        $pedidos = $stmt_pedido->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($pedidos === false) {
+            echo "No se encontró el pedido seleccionado.";
+            exit();
+        } else { 
+            foreach ($pedidos as $pedido) {
+                echo "<li class='pedido'>";
+                echo "<p>Cantidad: " .$pedido['Cantidad'] . "</p>";
+                echo "<p>Producto: " . $pedido['Producto'] . "</p>";
                 echo "</li>";
-                echo "<form action='carrito.php' method='POST' style='display:inline'>";
-                echo "<input type='hidden' name='nombre' value='" . $resultado['Nombre'] . "'>";
-                echo "<input type='hidden' name='codigo' value='" . $resultado['Codigo'] . "'>";
-                echo "<label for='cantidad'>Cantidad:</label>";
-                echo "<input type='number' name='cantidad' value='1' min='1' max='" . $resultado['CantidadStock'] . "' required>";
-                echo "<button type='submit'>Añadir al carrito</button>";
-                echo "</form>";
             }
-        } else {
-            echo "<p>No hay resultados disponibles.</p>";
+            echo "<a>Eliminar pedido</a>";
         }
         ?>
     </ul>

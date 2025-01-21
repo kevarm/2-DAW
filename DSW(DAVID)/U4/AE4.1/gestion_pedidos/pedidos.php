@@ -8,7 +8,7 @@ if (!isset($_SESSION["correo"])) {
     header("location:login.php");
     exit;
 }
-$id = $_SESSION['id'];
+
 $correo = $_SESSION['correo'];
 
 require_once __DIR__ . '\modelo\conexion.php';
@@ -33,14 +33,13 @@ if ($restaurante === false) {
 
 $id = $restaurante['Identificador'];
 
-
-
-$query_pedidos = "SELECT * FROM Pedido WHERE restaurante = :id ORDER BY FechaPedido DESC";
+$query_pedidos = "SELECT * FROM pedido WHERE restaurante = :id ORDER BY FechaPedido DESC";
 $stmt_pedidos = $conn->prepare($query_pedidos);
 $stmt_pedidos->bindParam(':id', $id, PDO::PARAM_STR);
 $stmt_pedidos->execute();
 $pedidos = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

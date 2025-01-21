@@ -19,6 +19,11 @@ if ($datos = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $_SESSION["correo"] = $datos['correo'];
     $_SESSION["id"]=$datos['identificador'];
 
+    if (isset($_COOKIE['cart'])) {
+        $_SESSION['carrito'] = json_decode($_COOKIE['cart'], true);
+      } else {
+        $_SESSION['carrito'] = [];
+      }
     header("location:inicio.php");
     exit;
 } else {
