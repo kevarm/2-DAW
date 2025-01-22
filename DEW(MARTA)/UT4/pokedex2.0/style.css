@@ -1,0 +1,272 @@
+/* Estilos básicos */
+body {
+    font-family: 'Press Start 2P', cursive; /* Manteniendo la fuente retro de Pokémon */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa; /* Fondo muy suave, blanco roto */
+}
+
+/* Título */
+h1 {
+    margin: 20px 0;
+    color: #ff6b6b; /* Rojo pastel para el título */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-size: 36px;
+    text-align: center;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px; /* Aumentar el tamaño máximo para que sea más amplio */
+    background: #ffffff; /* Fondo blanco para un estilo limpio */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding no haga que los inputs sobresalgan */
+}
+
+label {
+    font-size: 14px;
+    color: #495057; /* Color gris suave para los labels */
+    font-weight: bold;
+}
+
+/* Estilos de los campos de entrada */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], select {
+    padding: 10px;
+    border: 1px solid #dcdfe1; /* Borde gris claro */
+    border-radius: 5px;
+    width: 100%;
+    font-size: 14px;
+    background-color: #f8f9fa; /* Fondo muy suave para los campos */
+    transition: border-color 0.2s ease;
+    box-sizing: border-box; /* Asegura que el padding no haga que los inputs sobresalgan */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, select:focus {
+    border-color: #ff6b6b; /* Rojo suave cuando están enfocados */
+    outline: none;
+}
+
+/* Estilo para el botón */
+button {
+    padding: 10px 15px;
+    background: #ffb3b3; /* Rojo claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #ff9999; /* Rojo más claro al pasar el ratón */
+}
+
+button:active {
+    background: #ff4d4d; /* Rojo más intenso cuando se presiona */
+}
+
+/* Estilo de los mensajes de error */
+.error {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Contenedor de información */
+#trainer-info {
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    background-color: #f8f9fa; /* Fondo suave */
+}
+
+/* Pokédex (estilos de tarjetas Pokémon) */
+.pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.pokemon-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.1);
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.pokemon-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #495057; /* Gris suave para los títulos */
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 150px;
+    height: 150px;
+}
+
+.modal-content h2 {
+    margin: 10px 0;
+    color: #ff6b6b; /* Rojo pastel para los títulos dentro del modal */
+}
+
+.modal-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #495057; /* Gris suave para el texto */
+}
+
+.close-modal {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Fuente estilo retro para Pokémon */
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 150px;
+    height: 150px;
+}
+
+.modal-content h2 {
+    margin: 10px 0;
+    color: #ff6b6b; /* Rojo pastel para los títulos dentro del modal */
+}
+
+.modal-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #495057; /* Gris suave para el texto */
+}
+
+.close-modal {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#capture-button {
+    background: #b0bec5; /* Gris claro para el botón de captura */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.2s ease;
+}
+
+#capture-button:hover {
+    background: #90a4ae; /* Gris más oscuro al pasar el ratón */
+}
+
+#capture-button:active {
+    background: #78909c; /* Gris más oscuro al presionar */
+}
+
+/* Estilo para Pokémon capturados */
+.pokemon-card.captured {
+    filter: grayscale(100%); /* Aplica el filtro gris a los Pokémon capturados */
+    opacity: 0.6; /* Reduce la opacidad para dar el efecto de "capturado" */
+}
+

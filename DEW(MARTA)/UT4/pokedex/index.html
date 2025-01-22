@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pokedex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .pokemon-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .pokemon-card:hover {
+            transform: scale(1.1);
+        }
+
+        .pokemon-card img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .pokemon-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s;
+        }
+
+        .modal.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .modal-content h2 {
+            margin: 10px 0;
+        }
+
+        .modal-content p {
+            margin: 5px 0;
+        }
+
+        .close-modal {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <div class="pokedex" id="pokedex"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="pokemon-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">Cerrar</button>
+            <img src="" alt="Pokemon" id="modal-img">
+            <h2 id="modal-name"></h2>
+            <p><strong>Altura:</strong> <span id="modal-height"></span></p>
+            <p><strong>Peso:</strong> <span id="modal-weight"></span></p>
+            <p><strong>Tipos:</strong> <span id="modal-types"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
